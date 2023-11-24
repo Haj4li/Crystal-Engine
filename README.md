@@ -90,6 +90,8 @@ Examples
 void MyGame::Start()
 {
     // Initialize game state
+    Engine::SetTargetFPS(60);
+
 }
 
 void MyGame::Render()
@@ -105,11 +107,7 @@ void MyGame::Update()
 int main()
 {
     Engine::Init("My Game", 800, 600);
-    Engine::SetTargetFPS(60);
-
-    MyGame game;
-    Engine::Start();
-
+    
     return 0;
 }
 ```
