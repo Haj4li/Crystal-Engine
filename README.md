@@ -16,7 +16,7 @@ Features
 - [X] Drawing functions for circles and rectangles
 - [X] PNG image loading and display
 - [ ] Sprite manager class
-- [ ] Audio
+- [X] Audio
 - [ ] Animations (2D)
 - [ ] IDK Quantom Physics?
 
