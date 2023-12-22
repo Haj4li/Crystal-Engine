@@ -3,6 +3,13 @@
 #include <GL/glut.h>
 #include <vector>
 
+/*
+    Todo :
+        Add Text Rendering
+
+*/
+
+
 class Engine {
 public:
   static void Init(const char* title,const unsigned int width,const unsigned int height,int gl_argc = 0, char** gl_argv = nullptr);
@@ -20,14 +27,16 @@ public:
 
   static void ToggleFullScreen();
 
+  static void PlayAudio(const char* path);
+
 
 private:
     static bool full_screen;
 
-    static int windowed_w,windowed_h;
+    static unsigned int windowed_w,windowed_h;
 
-    static int SCREEN_WIDTH;
-    static int SCREEN_HEIGHT;
+    static unsigned int SCREEN_WIDTH;
+    static unsigned int SCREEN_HEIGHT;
     static unsigned int refreshMillis;
 
     static int mouseX ;
@@ -52,49 +61,49 @@ void Draw_Rectangle(float x, float y, float width, float height);
 
 struct KeyCode
 {
-    static const int KEY_A = 'a';
-    static const int KEY_B = 'b';
-    static const int KEY_C = 'c';
-    static const int KEY_D = 'd';
-    static const int KEY_E = 'e';
-    static const int KEY_F = 'f';
-    static const int KEY_G = 'g';
-    static const int KEY_H = 'h';
-    static const int KEY_I = 'i';
-    static const int KEY_J = 'j';
-    static const int KEY_K = 'k';
-    static const int KEY_L = 'l';
-    static const int KEY_M = 'm';
-    static const int KEY_N = 'n';
-    static const int KEY_O = 'o';
-    static const int KEY_P = 'p';
-    static const int KEY_Q = 'q';
-    static const int KEY_R = 'r';
-    static const int KEY_S = 's';
-    static const int KEY_T = 't';
-    static const int KEY_U = 'u';
-    static const int KEY_V = 'v';
-    static const int KEY_W = 'w';
-    static const int KEY_X = 'x';
-    static const int KEY_Y = 'y';
-    static const int KEY_Z = 'z';
+    static const unsigned short KEY_A = 'a';
+    static const unsigned short KEY_B = 'b';
+    static const unsigned short KEY_C = 'c';
+    static const unsigned short KEY_D = 'd';
+    static const unsigned short KEY_E = 'e';
+    static const unsigned short KEY_F = 'f';
+    static const unsigned short KEY_G = 'g';
+    static const unsigned short KEY_H = 'h';
+    static const unsigned short KEY_I = 'i';
+    static const unsigned short KEY_J = 'j';
+    static const unsigned short KEY_K = 'k';
+    static const unsigned short KEY_L = 'l';
+    static const unsigned short KEY_M = 'm';
+    static const unsigned short KEY_N = 'n';
+    static const unsigned short KEY_O = 'o';
+    static const unsigned short KEY_P = 'p';
+    static const unsigned short KEY_Q = 'q';
+    static const unsigned short KEY_R = 'r';
+    static const unsigned short KEY_S = 's';
+    static const unsigned short KEY_T = 't';
+    static const unsigned short KEY_U = 'u';
+    static const unsigned short KEY_V = 'v';
+    static const unsigned short KEY_W = 'w';
+    static const unsigned short KEY_X = 'x';
+    static const unsigned short KEY_Y = 'y';
+    static const unsigned short KEY_Z = 'z';
 
-    static const int KEY_0 = '0';
-    static const int KEY_1 = '1';
-    static const int KEY_2 = '2';
-    static const int KEY_3 = '3';
-    static const int KEY_4 = '4';
-    static const int KEY_5 = '5';
-    static const int KEY_6 = '6';
-    static const int KEY_7 = '7';
-    static const int KEY_8 = '8';
-    static const int KEY_9 = '9';
+    static const unsigned short KEY_0 = '0';
+    static const unsigned short KEY_1 = '1';
+    static const unsigned short KEY_2 = '2';
+    static const unsigned short KEY_3 = '3';
+    static const unsigned short KEY_4 = '4';
+    static const unsigned short KEY_5 = '5';
+    static const unsigned short KEY_6 = '6';
+    static const unsigned short KEY_7 = '7';
+    static const unsigned short KEY_8 = '8';
+    static const unsigned short KEY_9 = '9';
 
 
-    static const int KEY_SPACE = 32;
-    static const int KEY_ENTER = 13;
-    static const int KEY_SHIFT = 16;
-    static const int KEY_CTRL = 17;
+    static const unsigned short KEY_SPACE = 32;
+    static const unsigned short KEY_ENTER = 13;
+    static const unsigned short KEY_SHIFT = 16;
+    static const unsigned short KEY_CTRL = 17;
 
 };
 
@@ -102,7 +111,7 @@ struct KeyCode
 struct Pixel
 {
     int x, y;
-    int r, g, b, a;
+    unsigned short r, g, b, a;
 };
 
 class PNG
@@ -110,7 +119,7 @@ class PNG
 public:
     bool flip_h = false;
     bool flip_v = false;
-    int width, height;
+    unsigned int width, height;
     std::vector<Pixel> pixels;
 
     bool load(const char* filename);
