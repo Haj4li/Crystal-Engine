@@ -2,14 +2,18 @@
 #include <math.h>
 #include <windows.h>
 #include "lodepng.h"
+#include <mmsystem.h>
 
-int Engine::SCREEN_WIDTH;
-int Engine::SCREEN_HEIGHT;
+#pragma comment(lib, "Winmm.lib")
+
+
+unsigned int Engine::SCREEN_WIDTH;
+unsigned int Engine::SCREEN_HEIGHT;
 unsigned int Engine::refreshMillis = 1000/60;
 bool Engine::full_screen = false;
 int Engine::mouseX = 0;
 int Engine::mouseY = 0;
-int Engine::windowed_w,Engine::windowed_h;
+unsigned int Engine::windowed_w,Engine::windowed_h;
 bool Engine::mouse[2];
 
 bool Engine::keyStates[256];
@@ -257,4 +261,8 @@ void PNG::display(int x,int y)
     glDisable(GL_BLEND);
     glPopMatrix();
     //glutSwapBuffers();
+}
+void Engine::PlayAudio(const char* path)
+{
+    PlaySound(path, NULL, SND_FILENAME | SND_ASYNC);
 }
